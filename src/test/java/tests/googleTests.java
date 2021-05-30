@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.SearchPage;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class googleTests {
 
@@ -27,6 +29,7 @@ public class googleTests {
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
         searchPage = new SearchPage(driver);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
@@ -59,11 +62,29 @@ public class googleTests {
         element11.click();
         WebElement element12 = driver.findElement(By.xpath(".//div[text()='=']"));
         element12.click();
-    WebDriverWait wait = new WebDriverWait(driver, 10);
-}
-@AfterAll
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+    }
+    @AfterAll
     public static void teardown() {
         driver.quit();
+    }
+
+
+        @Test
+        public void test2() {
+            driver.get("http://google.com");
+            searchPage.search("калькулятор");
+        WebElement element = driver.findElement(By.xpath(".//div[text()='6']"));
+        element.click();
+        WebElement element1 = driver.findElement(By.xpath(".//div[text()='÷']"));
+        element1.click();
+        WebElement element2 = driver.findElement(By.xpath(".//div[text()='0']"));
+        element2.click();
+        WebElement element3 = driver.findElement(By.xpath(".//div[text()='=']"));
+        element3.click();
+            WebElement element4 = driver.findElement(By.id("cwos"));
+        }
 }
-}
+
+
 
