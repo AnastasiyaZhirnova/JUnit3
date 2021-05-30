@@ -69,7 +69,6 @@ public class googleTests {
         driver.quit();
     }
 
-
         @Test
         public void test2() {
             driver.get("http://google.com");
@@ -84,6 +83,18 @@ public class googleTests {
         element3.click();
             WebElement element4 = driver.findElement(By.id("cwos"));
         }
+
+    @Test
+    public void test3() {
+        driver.get("http://google.com");
+        searchPage.search("калькулятор");
+        WebElement element = driver.findElement(By.xpath(".//div[text()='sin']"));
+        element.click();
+        WebElement element2 = driver.findElement(By.xpath(".//div[text()='=']"));
+        element2.click();
+            WebElement element4 = driver.findElement(By.id("cwos"));
+    }
+
 }
 
 
