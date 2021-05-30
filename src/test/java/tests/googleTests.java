@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pages.SearchPage;
@@ -29,13 +30,20 @@ public class googleTests {
     @Test
     public void test1 () {
         driver.get("http://google.com");
-        searchPage.search("selenium");
-        assertEquals(14,searchPage.results.size());
-    }
-
-    @AfterAll
-    public static void teardown() {
-        driver.quit();
+        searchPage.search("калькулятор");
+        WebElement element = driver.findElement(By.xpath(".//div[text()='(']"));element.click();
+        WebElement element1 = driver.findElement(By.xpath(".//div[text()='1']"));element1.click();
+        WebElement element2 = driver.findElement(By.xpath(".//div[text()='+']"));element2.click();
+        WebElement element3 = driver.findElement(By.xpath(".//div[text()='2']"));element3.click();
+        WebElement element4 = driver.findElement(By.xpath(".//div[text()=')']"));element4.click();
+        WebElement element5 = driver.findElement(By.xpath(".//div[text()='×']"));element5.click();
+        WebElement element6 = driver.findElement(By.xpath(".//div[text()='3']"));element6.click();
+        WebElement element7 = driver.findElement(By.xpath(".//div[text()='−']"));element7.click();
+        WebElement element8 = driver.findElement(By.xpath(".//div[text()='4']"));element8.click();
+        WebElement element9 = driver.findElement(By.xpath(".//div[text()='0']"));element9.click();
+        WebElement element10 = driver.findElement(By.xpath(".//div[text()='÷']"));element10.click();
+        WebElement element11 = driver.findElement(By.xpath(".//div[text()='5']"));element11.click();
+        WebElement element12 = driver.findElement(By.xpath(".//div[text()='=']"));element12.click();
     }
 }
 
